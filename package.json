@@ -1,0 +1,28 @@
+{
+  "name": "world-template",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@codehz/ts-json-schema": "^0.0.3",
+    "@miehoukingdom/world-packager": "link:@miehoukingdom/world-packager",
+    "@types/bun": "latest"
+    ,
+    "bun-only": "^0.0.1",
+    "commander": "^14.0.2",
+    "get-tsconfig": "^4.13.0",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "build": "bun run world-packager -o dist/index.js ./src/index.ts && echo see dist/index.js for output",
+    "link:microsandbox": "bun link @miehoukingdom/world-interface && bun link @miehoukingdom/world-runtime && bun link @miehoukingdom/world-packager && bun link @miehoukingdom/world-renderer && bun link @miehoukingdom/x-renderer"
+  },
+  "dependencies": {
+    "@codehz/ecs": "^0.4.1",
+    "@codehz/pipeline": "^0.3.0",
+    "@miehoukingdom/world-interface": "link:@miehoukingdom/world-interface",
+    "@miehoukingdom/world-runtime": "link:@miehoukingdom/world-runtime"
+  }
+}

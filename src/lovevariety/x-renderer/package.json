@@ -1,0 +1,37 @@
+{
+  "name": "@miehoukingdom/x-renderer",
+  "version": "0.0.3",
+  "main": "./src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/react": "*",
+    "@webgpu/types": "*"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "release": "bun run scripts/release.ts"
+  },
+  "tsdown": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "format": [
+      "esm"
+    ],
+    "dts": true
+  },
+  "peerDependencies": {
+    "es-toolkit": "^1.42.0",
+    "react": "^19.2.0",
+    "twgl.js": "^7.0.0",
+    "valtio": "^2.2.0"
+  }
+}

@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@plugin "@iconify/tailwind4";
+
+@import "@catppuccin/tailwindcss/mocha.css";
+
+:root {
+  color-scheme: dark;
+}
