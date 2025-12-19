@@ -112,7 +112,7 @@ export class SimpleAIPass implements SyncPass {
     platform: ScriptPlatform | undefined,
     options: SimpleAIPassOptions = {},
   ) {
-    // SB 宿主有可能不给 platform，兜个空壳防止 emitEvent 崩
+    // 宿主可能不传 platform，这里兜底一个 noop，避免 emitEvent 直接报错
     this.platform = platform ?? ({
       emitEvent: () => {
         /* noop */

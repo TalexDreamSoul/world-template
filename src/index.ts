@@ -1,16 +1,3 @@
-/**
- * @file demo-world: 简单 AI 演示 (虚假思考+随机行走+Task 示范)
- *
- * 文件职责：
- * - 构建一个演示所需的 world、map、以及 pipeline
- * - 提供两个 demo pass：InitPlayerPass 与 SimpleAIPass
- * - 通过 EcsWorkerApi 将运行时接口导出给主应用/worker
- *
- * 设计要点：
- * - 这个 demo 旨在展示如何使用 TaskManager、Timer 与简单的决策树（Thinking）来驱动角色行为
- * - pipeline 按顺序组合多个 pass，确保渲染/碰撞/路径/运动在正确顺序下发生
- */
-
 import { Query, relation, World } from "@codehz/ecs";
 import { createPipeline, type SyncPass } from "@codehz/pipeline";
 import {

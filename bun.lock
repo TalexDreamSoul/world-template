@@ -6,20 +6,52 @@
       "dependencies": {
         "@codehz/ecs": "^0.4.1",
         "@codehz/pipeline": "^0.3.0",
-        "@miehoukingdom/world-interface": "link:@miehoukingdom/world-interface",
-        "@miehoukingdom/world-runtime": "link:@miehoukingdom/world-runtime",
+        "@miehoukingdom/world-interface": "workspace:*",
+        "@miehoukingdom/world-runtime": "workspace:*",
       },
       "devDependencies": {
-        "@codehz/ts-json-schema": "^0.0.3",
-        "@miehoukingdom/world-packager": "link:@miehoukingdom/world-packager",
+        "@miehoukingdom/world-packager": "workspace:*",
         "@types/bun": "latest",
+        "typescript": "^5.9.3",
+      },
+      "peerDependencies": {
+        "typescript": "^5.9.3",
+      },
+    },
+    "packages/world-interface": {
+      "name": "@miehoukingdom/world-interface",
+      "version": "0.0.0-development",
+      "dependencies": {
+        "@miehoukingdom/world-runtime": "workspace:*",
+      },
+      "peerDependencies": {
+        "@codehz/ecs": "*",
+        "@codehz/ts-json-schema": "^0.0.3",
+      },
+    },
+    "packages/world-packager": {
+      "name": "@miehoukingdom/world-packager",
+      "version": "0.0.0-development",
+      "bin": {
+        "world-packager": "./src/index.ts",
+      },
+      "dependencies": {
+        "@codehz/ts-json-schema": "^0.0.3",
         "bun-only": "^0.0.1",
         "commander": "^14.0.2",
         "get-tsconfig": "^4.13.0",
         "typescript": "^5.9.3",
       },
+      "devDependencies": {
+        "@miehoukingdom/world-interface": "workspace:*",
+      },
+    },
+    "packages/world-runtime": {
+      "name": "@miehoukingdom/world-runtime",
+      "version": "0.0.0-development",
       "peerDependencies": {
-        "typescript": "^5.9.3",
+        "@codehz/ecs": "*",
+        "@codehz/pipeline": "*",
       },
     },
   },
@@ -30,11 +62,11 @@
 
     "@codehz/ts-json-schema": ["@codehz/ts-json-schema@0.0.3", "", { "peerDependencies": { "typescript": "^5" } }, "sha512-zY0fZAZ5nVcZg9x+ZMkQVpHIU9olxwIVFI2ct/RRvd7Tn2Qc0ciBI1ewq8gIL3YdJ3qKVydF6dsR+tBEN5lKZw=="],
 
-    "@miehoukingdom/world-interface": ["@miehoukingdom/world-interface@link:@miehoukingdom/world-interface", {}],
+    "@miehoukingdom/world-interface": ["@miehoukingdom/world-interface@workspace:packages/world-interface"],
 
-    "@miehoukingdom/world-packager": ["@miehoukingdom/world-packager@link:@miehoukingdom/world-packager", { "bin": { "world-packager": "./src/index.ts" } }],
+    "@miehoukingdom/world-packager": ["@miehoukingdom/world-packager@workspace:packages/world-packager"],
 
-    "@miehoukingdom/world-runtime": ["@miehoukingdom/world-runtime@link:@miehoukingdom/world-runtime", {}],
+    "@miehoukingdom/world-runtime": ["@miehoukingdom/world-runtime@workspace:packages/world-runtime"],
 
     "@types/bun": ["@types/bun@1.3.5", "", { "dependencies": { "bun-types": "1.3.5" } }, "sha512-RnygCqNrd3srIPEWBd5LFeUYG7plCoH2Yw9WaZGyNmdTEei+gWaHqydbaIRkIkcbXwhBT94q78QljxN0Sk838w=="],
 

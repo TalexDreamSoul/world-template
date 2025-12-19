@@ -60,7 +60,7 @@ function create({
    */
   aiOptions?: SimpleAIPassOptions;
 }>) {
-  // SB 防御：某些宿主不会传 extraOptions，保证默认值存在
+  // 宿主可能不传 extraOptions，这里兜底默认值
   const aiOptions = extraOptions?.aiOptions ?? {};
   const geometry = new GridGeometry(structure.width, structure.height);
   const map = new GridMap(

@@ -1,0 +1,33 @@
+{
+  "name": "@miehoukingdom/world-runtime",
+  "version": "0.0.0-development",
+  "main": "./src/index.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {
+    "@codehz/ecs": "*",
+    "@codehz/pipeline": "*"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "release": "bun run scripts/release.ts"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "tsdown": {
+    "entry": [
+      "src/index.ts"
+    ],
+    "format": [
+      "esm"
+    ],
+    "dts": true
+  }
+}
